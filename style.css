@@ -1,0 +1,351 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+:root {
+	--light: #ffffbf;
+	--dark: #f46d43;
+	--accent: #3288bd;
+}
+html {
+	font-family:
+		"Expletus Sans",
+		system-ui,
+		'Segoe UI',
+		Roboto,
+		Helvetica,
+		Arial,
+		sans-serif,
+		'Apple Color Emoji',
+		'Segoe UI Emoji';
+	line-height: 1.5;
+	font-size: clamp(1rem, 0.75rem + 1.5vw, 2rem);
+	max-inline-size: 64ch;
+	-webkit-text-size-adjust: 100%; 
+	-webkit-font-smoothing: antialiased;
+	-moz-tab-size: 4; 
+	tab-size: 4;
+}
+
+h1, h2, h3, h4, h5, figure, p, ol, ul {
+	margin: 0;
+}
+ul {
+	list-style: none;
+	padding-inline: 0;
+}
+	img, picture, video, canvas, svg {
+	display: block;
+	max-width: 100%;
+}
+p {
+	overflow-wrap: break-word;
+	hyphens: auto;
+}
+.hidden {
+	display: none;
+}
+/* ============================================*/
+
+body{
+    height: 100vh;
+	width: 100vw;
+    overflow: hidden;
+    margin: 0;
+}
+.all {
+	display: grid;
+    grid-template-areas: 
+    "s t t t" 
+    "s m m r"
+    "s m m r" 
+    "s m m r";
+    grid-template-rows: 140px 1fr 1fr 1fr;
+    grid-template-columns: minmax(200px,18%) auto auto 22%;
+	height: 100%;
+	width: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* ============================================*/
+.sidebar.container {
+    grid-area: s;
+    background-color: var(--accent);
+    color: white;
+    display: grid;    
+    grid-template-rows: 
+    [group1-start] 16% [group1-end
+    group2-start] 7fr [group2-end
+    null2-start] 11fr [null2-end
+    group3-start] 5fr [group3-end];
+    padding: 0.5rem;
+    min-width: 200px;
+}
+ul.group {
+    display: grid;
+}
+.sidebar li {
+    display: grid;
+    grid-template-columns: 
+    [icon-start] 1fr [icon-end 
+    text-start] 5fr [text-end];
+    gap: 0.5rem;
+    
+}
+.group.one {
+    grid-row: group1;
+    align-self: top;
+}
+.group.two {
+    grid-row: group2;
+    display: grid;
+}
+.group.two li {
+    align-items: center;
+}
+.group.two li .icon {
+    margin-left: .1rem;
+    margin-right: .1rem;
+    justify-self: center;
+    height: 40%;
+}
+.group.three {
+    grid-row: group3;
+}
+.group.three li {
+    align-items: center;
+}
+.group.three li .icon {
+    margin-left: .1rem;
+    margin-right: .1rem;
+}
+
+/* ============================================*/
+.top.container {
+    grid-area: t;
+    background-color: white;
+    display: grid;
+    grid-template-areas: 
+    "s p"
+    "w b";
+    grid-template-rows: 30% 70%;
+    grid-template-columns: 60% 40%;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+}
+.search.bar {
+    grid-area: s;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: auto 1fr;
+    align-self: center;
+    align-items: center;
+}
+.search.bar .icon {
+    height: 0.6rem;
+}
+#searchbar {
+    border-radius: 15px;
+    border: none;
+    background-color: Gainsboro;
+    margin-right: 4rem;
+}
+.me.bar {
+    grid-area: p; 
+    display: grid;
+    gap: 0.7rem;
+    grid-template-columns: 1fr auto auto auto;
+    align-items: center;
+    align-self: center;
+}
+.me.bar .icon {
+    grid-column-start: 2;
+    height: 0.6rem;
+}
+
+.me .avatar {
+    grid-column-start: 3;
+    height: 1.2rem;
+}
+.welcome.bar {
+    grid-area: w;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem;
+    align-items: center;
+    align-self: end;
+}
+
+.large.avatar {
+    height: 1.7rem;
+}
+
+.button.bar {
+    grid-area: b;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+    align-self: end;
+}
+
+.button.bar button {
+    height:1rem;
+    border-radius: 15px;
+    border: none;
+    background-color: var(--accent);
+    color: white;
+    align-content: center;
+}
+
+
+/* ============================================*/
+.middle.container {
+    grid-area: m;
+    background-color: Gainsboro;
+    padding: 1rem;
+}
+
+.cards.container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.card {
+    background-color: white;
+    border-radius: 15px;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    display: grid;
+    grid-template-areas: 
+    "n n"
+    "b b"
+    "e i";
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto auto;
+}
+
+.card h4 {
+    grid-area: n;
+}
+
+.card p {
+    grid-area: b;
+}
+
+.card .uniline {
+    grid-area: i;
+    height: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-self: end;
+}
+
+.uniline img {
+    height: .5rem;
+    justify-self: end;
+}
+.card h4 {
+    font-size: 70%;
+}
+/* ============================================*/
+
+.right.container {
+    grid-area: r;
+    background-color: Gainsboro;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    display: grid;
+    grid-template-areas: 
+    "a"
+    "b"
+    "t"
+    "r";
+}
+.right.container h4 {
+    font-size: 65%;
+    align-self: end;
+    margin-bottom: .2rem;
+}
+
+.announcements.container h4 {
+    grid-area: a;
+}
+
+.announcements.container {
+    grid-area: b;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    background-color: white;
+    border-radius: 15px;
+    gap: 0.25rem;
+    padding: 0.5rem;
+}
+.trending.container h4 {
+    grid-area: t;
+}
+.trending.container {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    background-color: white;
+    border-radius: 15px;
+    gap: 0.25rem;
+    padding: 0.5rem;
+}
+
+.profile {
+    display: grid;
+    grid-template-areas: 
+    "p t"
+    "p b";
+    grid-template-columns: auto 1fr;
+}
+
+.profile .avatar {
+    height: 1.2rem;
+    grid-area: p;
+    margin-right: .2rem;
+}
+
+.profile h5 {
+    grid-area: t;
+    align-self: center;
+    line-height: 1;
+}
+.profile p {
+    grid-area: b;
+    align-self: top;
+    margin-left: .1rem;
+}
+
+
+/* ============================================*/
+h1 {
+    font-size: large;
+}
+h2 {
+    font-size: medium;
+}
+h3 {
+    font-size: small;
+}
+h4 {
+    font-size: smaller;
+}
+h5 {
+    font-size: x-small;
+}
+p {
+    font-size: x-small;
+}
+
+
+
